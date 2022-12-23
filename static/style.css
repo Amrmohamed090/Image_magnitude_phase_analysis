@@ -1,10 +1,10 @@
 
 html, body{
-  height: 100%;
-  margin:0;
-  background: linear-gradient(to top, #ccccff 0%, #ffffff 100%);
+  /* height: 100%; */
+  /* background: linear-gradient(to top, #ccccff 0%, #ffffff 100%); */
+  margin:10px;
 }
-#image1{
+/* #image1{
     display: block;
     max-width: 100%;
   }
@@ -15,17 +15,64 @@ html, body{
 
 .column {
     float: left;
-    max-width: 200px;/*n3ml eh hna?*/
-    max-height: 300px;/* w hna?*/
-    width: 25%; /* w hna?*/
-    height: 25%;/* w brdo hna?*/
+    max-width: 200px;                   n3ml eh hna?
+    max-height: 300px;w hna?
+    width: 25%; w hna?
+    height: 25%;w brdo hna?
     padding: 5px;
     margin:10%;
-  }
+  } */
   
   /* Clear floats after image containers */
-  .row::after {
+  /* .row::after {
     content: "";
     clear: both;
     display: table;
-  }
+  } */
+.images{
+  margin: auto;
+  width: 50%;
+}
+.imagediv{
+  width: 300px;
+  height: 200px;
+  display: inline-block;
+  margin: 10px;
+}
+#image1{
+  width:100%;
+  height:100%;
+  object-fit:fill;
+  border-radius: 7px;
+  
+}
+#image2{
+  width:100%;
+  height:100%;
+  object-fit: fill;
+  border-radius: 7px;
+}
+.phase_mag_Div{
+  margin: auto;
+  width: 50%;
+}
+#image2_info{
+  position: absolute;
+  right: 33%;
+  width: 304px;
+  border-radius: 10px;
+}
+#image1_info{
+  position: absolute;
+  right: 54%;
+  width: 304px;
+  border-radius: 10px;
+}
+
+#combine_btn{
+  position: absolute;
+  right: 69%;
+  bottom: 60%;
+  border-radius: 4px;
+  /* background-color: crimson; */
+}

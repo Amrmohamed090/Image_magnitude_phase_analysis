@@ -22,20 +22,29 @@
 
 </head>
 
-
-
 <body>
-    <div class="row">
-        <div class="column">
-            <img id="image1" src="../static/3.jpg" />
-
-           
+    <div class="images">
+        <div class="imagediv" >
+            <img id="image1" src="../static/images/man.jpg" />
         </div>
-        <div class="column">
-            <img id="image2" src="../static/10.jpg" />
-
+        
+          <div class="imagediv">
+              <img id="image2" src="../static/images/bird.jpg" />
+            </div>
         </div>
-    </div>
+        
+        <div class="phase_mag_Div">
+            <select name="image1_info" id="image1_info">
+                <option value="phase">Phase</option>
+                <option value="magnitude">Magnitude</option>
+              </select>
+              <select name="image2_info" id="image2_info">
+                <option value="phase">Phase</option>
+                <option value="magnitude">Magnitude</option>
+              </select>
+              <button id="combine_btn">Combine</button>
+        </div>
+
     </div>
 
 

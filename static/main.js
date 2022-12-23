@@ -13,7 +13,7 @@ var cropper1 = new Cropper(image1, {
 		minContainerWidth: image1.width,
 		minCanvasHeight: image1.height,
 		minCanvasWidth: image1.width,
-		viewMode: 3,
+		// viewMode: 3,
 		
   crop(event) {
   },
@@ -27,7 +27,6 @@ var cropper2 = new Cropper(image2, {
 		minContainerWidth: image2.width,
 		minCanvasHeight: image2.height,
 		minCanvasWidth: image2.width,
-		
 		
   crop(event) {
   },
