@@ -1,0 +1,31 @@
+
+html, body{
+  height: 100%;
+  margin:0;
+  background: linear-gradient(to top, #ccccff 0%, #ffffff 100%);
+}
+#image1{
+    display: block;
+    max-width: 100%;
+  }
+#image2{
+  display: block;
+  max-width: 100%;
+  }
+
+.column {
+    float: left;
+    max-width: 200px;/*n3ml eh hna?*/
+    max-height: 300px;/* w hna?*/
+    width: 25%; /* w hna?*/
+    height: 25%;/* w brdo hna?*/
+    padding: 5px;
+    margin:10%;
+  }
+  
+  /* Clear floats after image containers */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
