@@ -1,8 +1,5 @@
-from flask import Flask, render_template
 import cv2
-import matplotlib.pyplot as plt
 import numpy as np
-# import rgb2gray
 from skimage.color import rgb2gray
 from random import randint
 import os

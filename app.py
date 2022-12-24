@@ -1,9 +1,7 @@
-from flask import Flask , render_template, redirect,url_for,request,send_from_directory,session,jsonify, make_response
+from flask import Flask , render_template,request
 from flask_cors import CORS
-import cv2
 import matplotlib.pyplot as plt
 import numpy as np
-# import rgb2gray
 from skimage.color import rgb2gray
 import os
 import base64
