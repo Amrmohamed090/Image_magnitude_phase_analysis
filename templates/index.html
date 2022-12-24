@@ -2,36 +2,33 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"
-        integrity="sha512-6lplKUSl86rUVprDIjiW8DuOniNX8UDoRATqZSds/7t6zCQZfaCe3e5zcGaQwxa8Kpn5RTM9Fvl3X2lLV4grPQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.css"
-        integrity="sha512-C4k/QrN4udgZnXStNFS5osxdhVECWyhMsK1pnlk+LkC7yJGCqoYxW4mH3/ZXLweODyzolwdWSqmmadudSHMRLA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.js"
-        integrity="sha512-LjPH94gotDTvKhoxqvR5xR2Nur8vO5RKelQmG52jlZo7SwI5WLYwDInPn1n8H9tR0zYqTqfNxWszUEy93cHHwg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css"
-        integrity="sha512-cyzxRvewl+FOKTtpBzYjW6x6IAYUCZy3sGP40hn+DQkqeluGRCax7qztK2ImL64SA+C7kVWdLI6wvdlStawhyw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="../static/style.css">
+   <!-- Normalize CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<!-- Cropper CSS -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css'>
+<!-- Cropper JS -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js'></script>
 
 </head>
 
 <body>
     <div class="images">
-        <div class="imagediv" >
-            <img id="image1" src="../static/images/man1.png" />
+        <div class="imagediv1" >
+            <input type="file" name="image_input1" id="image_input1" />
+            <div id="result1"></div>
+            
+           
         </div>
+
         
-          <div class="imagediv">
-              <img id="image2" src="../static/images/bird1.png" />
-            </div>
+        <div class="imagediv2" >
+            <input type="file" name="image_input2" id="image_input2" />
+            <div id="result2"></div>
+            
+           
         </div>
+
+    </div>
         
         <div class="phase_mag_Div">
             <select name="image1_info" id="image1_info">
@@ -42,16 +39,18 @@
                 <option value="phase">Phase</option>
                 <option value="magnitude">Magnitude</option>
               </select>
-              <button id="combine_btn">Combine</button>
+              
         </div>
 
     </div>
+    
+    <button id="combine_btn" >Save</button>
 
 
 
 </body>
 
 
-<script src="../static/main.js"></script>
+<script src="../static/main2.js"></script>
 
 </html>
