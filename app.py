@@ -26,6 +26,8 @@ def main():
 @app.route('/saveImg',methods =['POST',"GET"])
 def save_Img():
     if request.method == "POST":
+        print(f'image1:::: x1{request.form["img1_x1"]} x2:{request.form["img1_x2"]} y1:{request.form["img1_y1"]} y2:{request.form["img1_y2"]}')
+        print(f'image2:::: x1{request.form["img2_x1"]} x2:{request.form["img2_x2"]} y1:{request.form["img2_y1"]} y2:{request.form["img2_y2"]}')
         option = request.form["option"]
         imgdata1 = base64.b64decode(request.form["imgdata1"].split(',')[1])
         imgdata2 = base64.b64decode(request.form["imgdata2"].split(',')[1])

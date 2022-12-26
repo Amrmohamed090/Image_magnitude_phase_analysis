@@ -8,6 +8,8 @@ let result1 = document.querySelector('#result1')
 let result2 = document.querySelector('#result2')
 let submit = document.getElementById("combine_btn")
 
+let image1_x1,image1_x2,image2_x1,image2_x2,image1_y1,image1_y2,image2_y1,image2_y2
+
 upload1.addEventListener('change', e => {
   if (e.target.files.length) {
     // start file reader
@@ -25,7 +27,18 @@ upload1.addEventListener('change', e => {
         // init cropper
         cropper1 = new Cropper(img, {
           zoomOnWheel: false,
-          movable: false
+          movable: false,
+          guides: false,
+          crop: function(e) {
+
+            image1_x1 = e.detail.x
+  
+            image1_y1 = e.detail.y
+   
+            image1_x2 = e.detail.width + e.detail.x
+
+            image1_y2 = e.detail.height + e.detail.y
+          }
         });
       }
     };
@@ -50,7 +63,17 @@ upload2.addEventListener('change', e => {
         // init cropper
         cropper2 = new Cropper(img2, {
           zoomOnWheel: false,
-          movable: false
+          movable: false,
+          guides: false,
+          crop: function(e) {
+            image2_x1 = e.detail.x
+  
+            image2_y1 = e.detail.y
+   
+            image2_x2 = e.detail.width + e.detail.x
+
+            image2_y2 = e.detail.height + e.detail.y
+          }
         });
       }
     };
@@ -78,7 +101,15 @@ submit.addEventListener('click', e => {
       data: {
         imgdata1: imgSrc1,
         imgdata2: imgSrc2,
-        option : option.value
+        option : option.value,
+        img1_x1 : image1_x1,
+        img1_x2 : image1_x2,
+        img1_y1 : image1_y1,
+        img1_y2 : image1_y2,
+        img2_x1 : image2_x1,
+        img2_x2 : image2_x2,
+        img2_y1 : image2_y1,
+        img2_y2 : image2_y2
       },
       success: function (res) {
         var responce = JSON.parse(res)
