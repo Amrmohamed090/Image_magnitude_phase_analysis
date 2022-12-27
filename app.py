@@ -26,16 +26,19 @@ def main():
 @app.route('/saveImg',methods =['POST',"GET"])
 def save_Img():
     if request.method == "POST":
+        img_1_edges = ((int(float(request.form["img1_y1"])),int(float(request.form["img1_y2"]))),(int(float(request.form["img1_x1"])),int(float(request.form["img1_x2"]))))
+        img_2_edges = ((int(float(request.form["img2_y1"])),int(float(request.form["img2_y2"]))),(int(float(request.form["img2_x1"])),int(float(request.form["img2_x2"]))))
         option = request.form["option"]
-        imgdata1 = base64.b64decode(request.form["imgdata1"].split(',')[1])
-        imgdata2 = base64.b64decode(request.form["imgdata2"].split(',')[1])
-        filename1 = './static/images/input/cropped1.png'  # I assume you have a way of picking unique filenames
-        filename2 = './static/images/input/cropped2.png'  # I assume you have a way of picking unique filenames
-        with open(filename1, 'wb') as f:
-            f.write(imgdata1)
-        with open(filename2, 'wb') as f:
-            f.write(imgdata2)
-        image_1 = get_combined(option)
+        original_1 = base64.b64decode(request.form["original_1"].split(',')[1])
+        original_2 = base64.b64decode(request.form["original_2"].split(',')[1])
+
+        filename3 = './static/images/input/original1.png'
+        filename4 = './static/images/input/original2.png'
+        with open(filename3, 'wb') as f:
+            f.write(original_1)
+        with open(filename4, 'wb') as f:
+            f.write(original_2)
+        image_1 = get_combined(option,img_1_edges,img_2_edges)
     return json.dumps({1: f'<img src="{image_1}"  id="comb_img" alt="" >'})
 
 if __name__ == "__main__":
