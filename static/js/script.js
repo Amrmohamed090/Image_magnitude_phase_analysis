@@ -9,8 +9,15 @@ let result2 = document.querySelector('#result2')
 let submit = document.getElementById("combine_btn")
 let original_img_1 = ""
 let original_img_2 = ""
-
+let checkbox = document.getElementById("uniform-phase")
+let checkbox2 = document.getElementById("uniform-Magnitude")
+let options = document.getElementById("image1_info")
 let image1_x1, image1_x2, image2_x1, image2_x2, image1_y1, image1_y2, image2_y1, image2_y2
+
+checkbox.addEventListener('change', e=>{
+  send()
+})
+
 
 upload1.addEventListener('change', e => {
   if (e.target.files.length) {
@@ -52,6 +59,13 @@ upload1.addEventListener('change', e => {
     reader.readAsDataURL(e.target.files[0]);
   }
 });
+checkbox2.addEventListener('change', e=>{
+  send()
+})
+
+options.addEventListener('change',  e=>{
+  send()
+})
 
 upload2.addEventListener('change', e => {
   if (e.target.files.length) {
@@ -94,13 +108,24 @@ upload2.addEventListener('change', e => {
 
 submit.addEventListener('click', e => {
   e.preventDefault();
+  send()
+}
+)
 
+
+function send(){
+  
   // to handle if the user not enter two images
   try {
     const option = document.getElementById("image1_info");
     if (original_img_1 == "" || original_img_2 == "") {
       throw "error : not enought images "
     }
+    checkbox_value = document.querySelector('#uniform-phase').checked;
+    console.log(checkbox_value)
+    checkbox_value_Magnitude = document.querySelector('#uniform-Magnitude').checked;
+
+  
     $.ajax({
       type: 'POST',
       url: 'http://127.0.0.1:5000/saveImg',
@@ -115,7 +140,9 @@ submit.addEventListener('click', e => {
         img2_x1: image2_x1,
         img2_x2: image2_x2,
         img2_y1: image2_y1,
-        img2_y2: image2_y2
+        img2_y2: image2_y2,
+        checkbox: checkbox_value,
+        checkbox_Magnitude: checkbox_value_Magnitude
       },
       success: function (res) {
         var responce = JSON.parse(res)
@@ -133,8 +160,8 @@ submit.addEventListener('click', e => {
 
     })
   } catch (error) {
-    alert("please upload two images")
+    console.log("please upload two images")
   }
 
+  
 }
-)

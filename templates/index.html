@@ -28,15 +28,26 @@
 
         </div>
         <div id="options_container">
-            <h1 id="title">Image Mixer </h1>
-                <br><br><br><br>
+            <h1 id="title" style="text-align:center">Image Mixer </h1>
+                <br><br>
             <select name="image1_info" id="image1_info" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                <option value="option1">Magnitude1 + Phase2</option>
-                <option value="option2">Magnitude2 + Phase1</option>
+                <option value="option1">Magnitude 1 + Phase 2</option>
+                <option value="option2">Phase 1 + Magnitude 2</option>
+                
             </select>
             <br>
             <button id="combine_btn" class="btn btn-outline-dark">Result</button>
+            
+            <div class="checkbox-form">
+                
+                <input type="checkbox" id="uniform-phase">
+                <span>Uniform Phase</span>
     
+                
+                <input type="checkbox" id="uniform-Magnitude">
+                <span>Uniform Magnitude</span>
+
+            </div>
     
     
         </div>
@@ -46,7 +57,7 @@
             <div id="result2"></div>
             <div class="input-group mb-3">
                 <input type="file"  class="form-control" id="image_input2">
-              </div>
+            </div>
 
 
 
