@@ -57,7 +57,9 @@ class ImageProcessing:
                     arr[i][j]=self.value
         return arr
         
-    def get_cropped(self)
+    def get_cropped(self,arr):
+        return __croper(arr)
+
     
 
 
