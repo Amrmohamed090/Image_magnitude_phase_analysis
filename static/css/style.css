@@ -4,12 +4,20 @@
 }
 
 #result1 {
-  width: 525px;
-  height: 350px;
+  width: 33vw;
+  height: 45vh;
   background-color: #f6f6f6;
   box-shadow: 1px 1px 2px  rgb(150, 150, 150);
   margin-top: 10px;
 }
+#result2 {
+  width: 33vw;
+  height: 45vh;
+  background-color: #f6f6f6;
+  box-shadow: 1px 1px 2px  rgb(150, 150, 150);
+  margin-top: 10px;
+}
+
 #image1_info{
   border: 1px solid black;
 }
@@ -26,13 +34,6 @@
 
 }
 
-#result2 {
-  width: 525px;
-  height: 350px;
-  background-color: #f6f6f6;
-  box-shadow: 1px 1px 2px  rgb(150, 150, 150);
-  margin-top: 10px;
-}
 
 #images_2 {
   display: flex;
@@ -49,10 +50,10 @@
 }
 
 #comb_img {
-  width: 525px;
-  height: 320px;
+  width: 33vw;
+  height: 45vh;
   position: absolute;
-  left: 500px;
+  left: 34vw;
 
 }
 
@@ -72,7 +73,7 @@
 
 
 #combine_btn{
-  font-size: 20px;
+  font-size: 1vw;
 }
 
 .checkbox-form{
