@@ -6,7 +6,7 @@ class Image:
 
     def __init__(self,img):
         self.img = img
-    
+
     def __grayScale(self):
         self.img = cv2.imread(self.img,cv2.IMREAD_GRAYSCALE)
     
@@ -23,42 +23,48 @@ class Image:
         Image.__resize(self)
         Image.__fourier(self)
         return self.img
-
-
+    
+    @staticmethod
+    def save(path,img):
+        with open(path, 'wb') as f:
+            cv2.imwrite(path,img)
+        
 
 class ImageProcessing:
     def __init__(self,edges,value,uniform_Magnitude_bool,uniform_phase_bool,fourier_shifted):
         self.edges = edges
-        self.value = int(value)
+        self.value = value
         self.uniform_Magnitude_bool = uniform_Magnitude_bool
         self.uniform_phase_bool = uniform_phase_bool
         self.fourier_shifted = fourier_shifted
 
-    def __uniform_croper(self):
+    def __handel_croper(self):
         if self.value == 1:
             arr_=np.abs(self.fourier_shifted) # the magnitude after fourier
-            arr_ = self.update(arr_)
+            arr_ = self.__crop(arr_)
             if self.uniform_Magnitude_bool=="true":
                 arr_ = np.ones(arr_.shape)
+            
                 
         elif self.value == 0:
             arr_=np.angle(self.fourier_shifted)# the phase after fourier
-            arr_ = self.update(arr_)
-            arr_ = np.exp(1j*arr_)
+            arr_ = self.__crop(arr_)
             if self.uniform_phase_bool == 'true':
                 arr_ = np.zeros(arr_.shape)
+            arr_ = np.exp(1j*arr_)
         return arr_
 
         
-    def __croper(self,arr):
+    def __crop(self,arr):
         for i in range(arr.shape[0]):
             for j in range(arr.shape[1]):
                 if (i < self.edges[0][0] or i>=self.edges[0][1] )or (j<=self.edges[1][0] or j >=self.edges[1][1] ): #the i and j axis are obtined according to the cropped image
                     arr[i][j]=self.value
         return arr
         
-    def get_cropped(self,arr):
-        return __croper(arr)
+    def get_cropped(self):
+        
+        return self.__handel_croper()
 
     
 

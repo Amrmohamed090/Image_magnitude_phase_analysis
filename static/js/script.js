@@ -50,8 +50,11 @@ upload1.addEventListener('change', e => {
             image1_x2 = e.detail.width + e.detail.x
 
             image1_y2 = e.detail.height + e.detail.y
-
-
+            
+            
+          },
+          cropend: function(e){
+            send()
           }
         });
       }
@@ -95,8 +98,12 @@ upload2.addEventListener('change', e => {
             image2_x2 = e.detail.width + e.detail.x
 
             image2_y2 = e.detail.height + e.detail.y
+            
+            
 
-
+          },
+          cropend: function(e){
+            send()
           }
         });
       }
@@ -160,7 +167,7 @@ function send(){
 
     })
   } catch (error) {
-    alert("please upload two images")
+    console.log("please upload two images")
   }
 
   
