@@ -1,11 +1,6 @@
 import cv2
 import numpy as np
-from skimage.color import rgb2gray
-from random import randint
-import os
-import matplotlib.pyplot as plt
-import matplotlib
-matplotlib.use("Agg")
+
 
 class ImageProcess:
     def __init__(self,edges,value,num,uniform_phase_bool,uniform_Magnitude_bool):
@@ -47,6 +42,13 @@ class ImageProcess:
                 arr_ = np.exp(1j*arr_)
             
         return arr_
+    @staticmethod
+    def multiply(arr1,arr2):
+        return np.multiply(arr1,arr2)
+    @staticmethod
+    def combine(arr1,arr2):
+        return np.real(np.fft.ifft2(np.fft.ifftshift(ImageProcess.multiply(arr1,arr2))))
+
 
 
 

@@ -33,17 +33,14 @@ def save_Img():
         img_1_edges = ((int(float(request.form["img1_y1"])),int(float(request.form["img1_y2"]))),(int(float(request.form["img1_x1"])),int(float(request.form["img1_x2"]))))
         img_2_edges = ((int(float(request.form["img2_y1"])),int(float(request.form["img2_y2"]))),(int(float(request.form["img2_x1"])),int(float(request.form["img2_x2"]))))
         option = request.form["option"]
-        original_1 = base64.b64decode(request.form["original_1"].split(',')[1])
-        original_2 = base64.b64decode(request.form["original_2"].split(',')[1])
+        #save original images
+        saveImg(base64.b64decode(request.form["original_1"].split(',')[1]),'./static/images/input/original1.png')
+        saveImg(base64.b64decode(request.form["original_2"].split(',')[1]),'./static/images/input/original2.png')
 
-        filename3 = './static/images/input/original1.png'
-        filename4 = './static/images/input/original2.png'
-        with open(filename3, 'wb') as f:
-            f.write(original_1)
-        with open(filename4, 'wb') as f:
-            f.write(original_2)
-        image_1 = get_combined(option,img_1_edges,img_2_edges,request.form["checkbox"],request.form["checkbox_Magnitude"])
-    return json.dumps({1: f'<img src="{image_1}"  id="comb_img" alt="" >'})
+        combined_img = get_combined(option,img_1_edges,img_2_edges,request.form["checkbox"],request.form["checkbox_Magnitude"])
+    return json.dumps({1: f'<img src="{combined_img}"  id="comb_img" alt="" >'})
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
