@@ -160,7 +160,7 @@ function send(){
 
     })
   } catch (error) {
-    console.log("please upload two images")
+    alert("please upload two images")
   }
 
   
