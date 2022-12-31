@@ -1,54 +1,16 @@
-import cv2
 import numpy as np
 
-
-class ImageProcess:
-    def __init__(self,edges,value,num,uniform_phase_bool,uniform_Magnitude_bool):
-        self.edges = edges
-        self.value = int(value)
-        self.img = cv2.imread(f"static/images/input/original{num}.png",cv2.IMREAD_GRAYSCALE)
-        self.num = num
-        self.uniform_phase_bool = uniform_phase_bool
-        self.uniform_Magnitude_bool = uniform_Magnitude_bool
+class ImageProcessing:
+    def __init__(self,img1,img2):
+        self.img1 = img1
+        self.img2 = img2
         
+    def __multiply(img1,img2):
+        return np.multiply(img1,img2)
 
-    def update(self,arr):
-        for i in range(arr.shape[0]):
-            for j in range(arr.shape[1]):
-                if (i < self.edges[0][0] or i>=self.edges[0][1] )or (j<=self.edges[1][0] or j >=self.edges[1][1] ): #the i and j axis are obtined according to the cropped image
-                    arr[i][j]=self.value
-        return arr
+    def combine(self):
+        return np.real(np.fft.ifft2(np.fft.ifftshift(ImageProcessing.__multiply(self.img1,self.img2))))
 
-    
-    def fourier(self):
-        self.img = cv2.resize(self.img ,(640,427))
-        fourier_=np.fft.fft2((self.img)) #fft2 for 2d fourier transform as the variation of the image happend in two dimension 
-        fourier_shifted = np.fft.fftshift(fourier_) # to avoid the repeation in the frequencies
-        if self.value == 1:
-            arr_=np.abs(fourier_shifted) # the magnitude after fourier
-            arr_ = self.update(arr_)
-            if self.uniform_Magnitude_bool=="true":
-                arr_ = np.ones(arr_.shape)
-                
-        elif self.value == 0:
-            if self.uniform_phase_bool == 'true':
-                print(type(self.uniform_phase_bool))
-                arr_=np.angle(fourier_shifted)
-                arr_ = np.zeros(arr_.shape)
-                arr_ = np.exp(1j*arr_) 
-            else:
-                arr_=np.angle(fourier_shifted)# the phase after fourier
-                arr_ = self.update(arr_)
-                arr_ = np.exp(1j*arr_)
-            
-        return arr_
-
-    def __multiply(arr1,arr2):
-        return np.multiply(arr1,arr2)
-
-    @staticmethod
-    def combine(arr1,arr2):
-        return np.real(np.fft.ifft2(np.fft.ifftshift(ImageProcess.__multiply(arr1,arr2))))
 
 
 

@@ -36,7 +36,6 @@ def save_Img():
         #save original images
         saveImg(base64.b64decode(request.form["original_1"].split(',')[1]),'./static/images/input/original1.png')
         saveImg(base64.b64decode(request.form["original_2"].split(',')[1]),'./static/images/input/original2.png')
-
         combined_img = get_combined(option,img_1_edges,img_2_edges,request.form["checkbox"],request.form["checkbox_Magnitude"])
     return json.dumps({1: f'<img src="{combined_img}"  id="comb_img" alt="" >'})
 
