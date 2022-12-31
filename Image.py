@@ -45,10 +45,8 @@ class ImageProcessing:
             arr_=np.angle(self.fourier_shifted)# the phase after fourier
             arr_ = self.update(arr_)
             arr_ = np.exp(1j*arr_)
-            if self.uniform_phase_bool == 'true':                                                                                                                                                   
-
-        else:
-            
+            if self.uniform_phase_bool == 'true':
+                arr_ = np.zeros(arr_.shape)
         return arr_
 
         
