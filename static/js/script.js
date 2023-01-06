@@ -18,7 +18,6 @@ checkbox.addEventListener('change', e=>{
   send()
 })
 
-
 upload1.addEventListener('change', e => {
   if (e.target.files.length) {
     // start file reader
